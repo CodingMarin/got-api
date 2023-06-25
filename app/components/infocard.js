@@ -33,7 +33,7 @@ export default function InfoCard({ picture, status, name, description }) {
                 />
             </div>
             <div className='hero position-absolute text-center' style={{ width: 240 }}>
-                <h4><a href='https://got-api.vercel.app/api/character/1'>{name}</a></h4>
+                <h4><Link href='/api/character/1'></Link>{name}</h4>
                 {/* <div className='row'>
                     <span className='text-secondary d-inline'>Status:&nbsp;
                         <p className='d-inline'>
