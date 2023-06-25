@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 export default function InfoCard({ picture, status, name, description }) {
     return (
-        <div class="info-card" style={{ width: 240, height: 230 }} onClick={'https://got-api.vercel.app/api/character/1'}>
+        <div class="info-card" style={{ width: 240, height: 230 }}>
             <div class="shine"></div>
             <div class="background">
                 <div class="tiles">
@@ -33,7 +33,7 @@ export default function InfoCard({ picture, status, name, description }) {
                 />
             </div>
             <div className='hero position-absolute text-center' style={{ width: 240 }}>
-                <h4>{name}</h4>
+                <h4><a href='https://got-api.vercel.app/api/character/1'>{name}</a></h4>
                 {/* <div className='row'>
                     <span className='text-secondary d-inline'>Status:&nbsp;
                         <p className='d-inline'>
