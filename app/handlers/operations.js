@@ -20,6 +20,9 @@ export async function getById(model, id) {
     if (error) {
         return NextResponse.json({ msg: message.badParam }, { status: 500 })
     }
-
-    return NextResponse.json(data, { status: 200 })
+    if (data && data.length > 0) {
+        return NextResponse.json(data, { status: 200 });
+    } else {
+        return NextResponse.json({ msg: message.noCharacter }, { status: 404 });
+    }
 }

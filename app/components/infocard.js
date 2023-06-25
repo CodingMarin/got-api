@@ -1,9 +1,26 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-export default function InfoCard({ picture, status, name, description }) {
+export default function InfoCard({ picture, status, name, description, id }) {
     return (
-        <div class="info-card" style={{ width: 240, height: 230 }}>
+        <div class="info-card" style={{ width: 240, height: 240 }}>
+            <span class="icon">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M17 3.34a10 10 0 1 1 -14.995 8.984l-.005 -.324l.005 -.324a10 10 0 0 1 14.995 -8.336zm-1.051 6.844a1 1 0 0 0 -1.152 -.663l-.113 .03l-2.684 .895l-2.684 -.895l-.113 -.03a1 1 0 0 0 -.628 1.884l.109 .044l2.316 .771v.976l-1.832 2.75l-.06 .1a1 1 0 0 0 .237 1.21l.1 .076l.101 .06a1 1 0 0 0 1.21 -.237l.076 -.1l1.168 -1.752l1.168 1.752l.07 .093a1 1 0 0 0 1.653 -1.102l-.059 -.1l-1.832 -2.75v-.977l2.316 -.771l.109 -.044a1 1 0 0 0 .524 -1.221zm-3.949 -4.184a1.5 1.5 0 1 0 0 3a1.5 1.5 0 0 0 0 -3z" stroke-width="0" fill="currentColor"></path>
+                </svg>
+            </span>
+            <h4><Link href={`/api/character/${id}`}>{name}</Link></h4>
+            <p>
+                Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.
+            </p>
             <div class="shine"></div>
             <div class="background">
                 <div class="tiles">
@@ -32,21 +49,6 @@ export default function InfoCard({ picture, status, name, description }) {
                     height={192}
                     quality={100}
                 />
-            </div>
-            <div className='hero position-absolute text-center' style={{ width: 240 }}>
-                <h4><Link href='/api/character/1'></Link>{name}</h4>
-                {/* <div className='row'>
-                    <span className='text-secondary d-inline'>Status:&nbsp;
-                        <p className='d-inline'>
-                            <span className='status-icon d-inline'>●</span>
-                            &nbsp;Alive
-                        </p>
-                    </span>
-                    <span className='text-secondary d-inline'>
-                        Gender:&nbsp;
-                        <p className='d-inline'>Female</p>
-                    </span>
-                </div> */}
             </div>
         </div>
     )

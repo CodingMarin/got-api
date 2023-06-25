@@ -12,6 +12,9 @@
   --card-box-shadow-2-y: 8px;
   --card-box-shadow-2-blur: 15px;
   --card-label-color: #ffffff;
+  --card-icon-color: #D4D4D8;
+  --card-icon-background-color: rgba(255, 255, 255, 0.08);
+  --card-icon-border-color: rgba(255, 255, 255, 0.12);
   --card-shine-opacity: 0.1;
   --card-shine-gradient: conic-gradient(
       from 205deg at 50% 50%,
@@ -77,11 +80,10 @@ span {
 }
 
 .info-card {
+  padding: 56px 16px 16px 16px;
   /* background-color: var(--background-color); */
   box-shadow: 0px var(--card-box-shadow-1-y) var(--card-box-shadow-1-blur) var(--card-box-shadow-1), 0px var(--card-box-shadow-2-y) var(--card-box-shadow-2-blur) var(--card-box-shadow-2), 0 0 0 1px var(--card-border-color);
   border-radius: 15px;
-  cursor: pointer;
-  padding: 0px 16px 16px 0px;
   position: relative;
   transition: box-shadow 0.25s;
 }
@@ -97,28 +99,48 @@ span {
 .picture{
   border-radius: 15px 15px 0px 0px;
 }
-
-.hero{
-  bottom: 0;
-  border-radius: 0px 0px 15px 15px;
-  background:#1D2429;
-}
-
-.hero h4 {
+.info-card .icon {
   z-index: 2;
+  position: relative;
+  display: table;
+  padding: 8px;
+}
+.info-card .icon::after {
+  content: "";
+  position: absolute;
+  inset: 4.5px;
+  border-radius: 50%;
+  background-color: var(--card-icon-background-color);
+  border: 1px solid var(--card-icon-border-color);
+  -webkit-backdrop-filter: blur(2px);
+          backdrop-filter: blur(2px);
+  transition: background-color 0.25s, border-color 0.25s;
+}
+.info-card .icon svg {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 24px;
+  height: 24px;
+  transform: translateZ(0);
+  color: var(--card-icon-color);
+  transition: color 0.25s;
+}
+.info-card h4 {
+  z-index: 2;
+  position: relative;
+  margin: 12px 0 4px 0;
   font-family: inherit;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 14px;
   line-height: 2;
   color: var(--card-label-color);
 }
-.hero span.status-icon{
-  color: rgb(85, 204, 68);
-}
-.hero p {
+.info-card p {
+  z-index: 2;
+  position: relative;
   margin: 0;
   font-size: 14px;
-  line-height: 1.7;
   color: var(--text-color);
 }
 .info-card .shine {
@@ -305,7 +327,13 @@ span {
 .info-card:hover {
   box-shadow: 0px 3px 6px var(--card-hover-box-shadow-1), 0px var(--card-hover-box-shadow-2-y) var(--card-hover-box-shadow-2-blur) var(--card-hover-box-shadow-2), 0 0 0 1px var(--card-hover-border-color);
 }
-
+.card:hover .icon::after {
+  background-color: var(--card-hover-icon-background-color);
+  border-color: var(--card-hover-icon-border-color);
+}
+.card:hover .icon svg {
+  color: var(--card-hover-icon-color);
+}
 .info-card:hover .shine {
   opacity: 1;
   transition-duration: 0.5s;
