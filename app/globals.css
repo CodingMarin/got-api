@@ -1,0 +1,340 @@
+:root {
+  --max-width: 1100px;
+  --border-radius: 12px;
+  --text-color:#95A1AC;
+  --background-color:#14181b;
+  --card-background-color: #15181B;
+  --card-border-color: rgba(255, 255, 255, 0.05);
+  --card-box-shadow-1: rgba(0, 0, 0, 0.05);
+  --card-box-shadow-1-y: 3px;
+  --card-box-shadow-1-blur: 6px;
+  --card-box-shadow-2: rgba(0, 0, 0, 0.1);
+  --card-box-shadow-2-y: 8px;
+  --card-box-shadow-2-blur: 15px;
+  --card-label-color: #ffffff;
+  --card-shine-opacity: 0.1;
+  --card-shine-gradient: conic-gradient(
+      from 205deg at 50% 50%,
+      rgba(16, 185, 129, 0) 0deg,
+      #10b981 25deg,
+      rgba(52, 211, 153, 0.18) 295deg,
+      rgba(16, 185, 129, 0) 360deg
+  );
+  --card-line-color: rgba(38, 45, 52, 0.15);
+  --card-tile-color: rgba(16, 185, 129, 0.05);
+  --card-hover-border-color: rgba(255, 255, 255, 0.09);
+  --card-hover-box-shadow-1: rgba(0, 0, 0, 0.04);
+  --card-hover-box-shadow-1-y: 5px;
+  --card-hover-box-shadow-1-blur: 10px;
+  --card-hover-box-shadow-2: rgba(0, 0, 0, 0.3);
+  --card-hover-box-shadow-2-y: 15px;
+  --card-hover-box-shadow-2-blur: 25px;
+  --card-hover-icon-color: #34d399;
+  --card-hover-icon-background-color: rgba(52, 211, 153, 0.1);
+  --card-hover-icon-border-color: rgba(52, 211, 153, 0.2);
+  --blur-opacity: 0.01;
+  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
+    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
+    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+}
+
+* {
+  box-sizing: inherit;
+  -webkit-font-smoothing: antialiased;
+}
+
+*:before, *:after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+body{
+  background: var(--background-color) !important;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+span {
+  font-size: 14px;
+}
+.align-bottom{
+  bottom: 0;
+}
+
+.align-self-center{
+  margin: 0 auto;
+}
+
+.gap{
+  gap: 1.552rem;
+}
+
+.info-card {
+  /* background-color: var(--background-color); */
+  box-shadow: 0px var(--card-box-shadow-1-y) var(--card-box-shadow-1-blur) var(--card-box-shadow-1), 0px var(--card-box-shadow-2-y) var(--card-box-shadow-2-blur) var(--card-box-shadow-2), 0 0 0 1px var(--card-border-color);
+  border-radius: 15px;
+  cursor: pointer;
+  padding: 0px 16px 16px 0px;
+  position: relative;
+  transition: box-shadow 0.25s;
+}
+
+.info-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 15px;
+  /* background-color: var(--card-background-color); */
+}
+
+.picture{
+  border-radius: 15px 15px 0px 0px;
+}
+
+.hero{
+  bottom: 0;
+  border-radius: 0px 0px 15px 15px;
+  background:#1D2429;
+}
+
+.hero h4 {
+  z-index: 2;
+  font-family: inherit;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 2;
+  color: var(--card-label-color);
+}
+.hero span.status-icon{
+  color: rgb(85, 204, 68);
+}
+.hero p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-color);
+}
+.info-card .shine {
+  border-radius: inherit;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+.info-card .shine:before {
+  content: "";
+  width: 150%;
+  padding-bottom: 150%;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  bottom: 55%;
+  filter: blur(35px);
+  opacity: var(--card-shine-opacity);
+  transform: translateX(-50%);
+  background-image: var(--card-shine-gradient);
+}
+.info-card .background {
+  border-radius: inherit;
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  -webkit-mask-image: radial-gradient(circle at 60% 5%, black 0%, black 15%, transparent 60%);
+  mask-image: radial-gradient(circle at 60% 5%, black 0%, black 15%, transparent 60%);
+}
+.info-card .background .tiles {
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+.info-card .background .tiles .tile {
+  position: absolute;
+  background-color: var(--card-tile-color);
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  opacity: 0;
+}
+.info-card .background .tiles .tile.tile-4, .info-card .background .tiles .tile.tile-6, .info-card .background .tiles .tile.tile-10 {
+  -webkit-animation-delay: -2s;
+          animation-delay: -2s;
+}
+.info-card .background .tiles .tile.tile-3, .info-card .background .tiles .tile.tile-5, .info-card .background .tiles .tile.tile-8 {
+  -webkit-animation-delay: -4s;
+          animation-delay: -4s;
+}
+.info-card .background .tiles .tile.tile-2, .info-card .background .tiles .tile.tile-9 {
+  -webkit-animation-delay: -6s;
+          animation-delay: -6s;
+}
+.info-card .background .tiles .tile.tile-1 {
+  top: 0;
+  left: 0;
+  height: 10%;
+  width: 22.5%;
+}
+.info-card .background .tiles .tile.tile-2 {
+  top: 0;
+  left: 22.5%;
+  height: 10%;
+  width: 27.5%;
+}
+.info-card .background .tiles .tile.tile-3 {
+  top: 0;
+  left: 50%;
+  height: 10%;
+  width: 27.5%;
+}
+.info-card .background .tiles .tile.tile-4 {
+  top: 0;
+  left: 77.5%;
+  height: 10%;
+  width: 22.5%;
+}
+.info-card .background .tiles .tile.tile-5 {
+  top: 10%;
+  left: 0;
+  height: 22.5%;
+  width: 22.5%;
+}
+.info-card .background .tiles .tile.tile-6 {
+  top: 10%;
+  left: 22.5%;
+  height: 22.5%;
+  width: 27.5%;
+}
+.info-card .background .tiles .tile.tile-7 {
+  top: 10%;
+  left: 50%;
+  height: 22.5%;
+  width: 27.5%;
+}
+.info-card .background .tiles .tile.tile-8 {
+  top: 10%;
+  left: 77.5%;
+  height: 22.5%;
+  width: 22.5%;
+}
+.info-card .background .tiles .tile.tile-9 {
+  top: 32.5%;
+  left: 50%;
+  height: 22.5%;
+  width: 27.5%;
+}
+.info-card .background .tiles .tile.tile-10 {
+  top: 32.5%;
+  left: 77.5%;
+  height: 22.5%;
+  width: 22.5%;
+}
+@-webkit-keyframes tile {
+  0%, 12.5%, 100% {
+    opacity: 1;
+  }
+  25%, 82.5% {
+    opacity: 0;
+  }
+}
+@keyframes tile {
+  0%, 12.5%, 100% {
+    opacity: 1;
+  }
+  25%, 82.5% {
+    opacity: 0;
+  }
+}
+.info-card .background .line {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.35s;
+}
+.info-card .background .line:before, .info-card .background .line:after {
+  content: "";
+  position: absolute;
+  background-color: var(--card-line-color);
+  transition: transform 0.35s;
+}
+.info-card .background .line:before {
+  left: 0;
+  right: 0;
+  height: 1px;
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+}
+.info-card .background .line:after {
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  transform-origin: 50% 0;
+  transform: scaleY(0);
+}
+.info-card .background .line.line-1:before {
+  top: 10%;
+}
+.info-card .background .line.line-1:after {
+  left: 22.5%;
+}
+.info-card .background .line.line-1:before, .info-card .background .line.line-1:after {
+  transition-delay: 0.3s;
+}
+.info-card .background .line.line-2:before {
+  top: 32.5%;
+}
+.info-card .background .line.line-2:after {
+  left: 50%;
+}
+.info-card .background .line.line-2:before, .info-card .background .line.line-2:after {
+  transition-delay: 0.15s;
+}
+.info-card .background .line.line-3:before {
+  top: 55%;
+}
+.info-card .background .line.line-3:after {
+  right: 22.5%;
+}
+.info-card:hover {
+  box-shadow: 0px 3px 6px var(--card-hover-box-shadow-1), 0px var(--card-hover-box-shadow-2-y) var(--card-hover-box-shadow-2-blur) var(--card-hover-box-shadow-2), 0 0 0 1px var(--card-hover-border-color);
+}
+
+.info-card:hover .shine {
+  opacity: 1;
+  transition-duration: 0.5s;
+  transition-delay: 0s;
+}
+.info-card:hover .background .tiles {
+  opacity: 1;
+  transition-delay: 0.25s;
+}
+.info-card:hover .background .tiles .tile {
+  -webkit-animation-name: tile;
+          animation-name: tile;
+}
+.info-card:hover .background .line {
+  opacity: 1;
+  transition-duration: 0.15s;
+}
+.info-card:hover .background .line:before {
+  transform: scaleX(1);
+}
+.info-card:hover .background .line:after {
+  transform: scaleY(1);
+}
+.info-card:hover .background .line.line-1:before, .info-card:hover .background .line.line-1:after {
+  transition-delay: 0s;
+}
+.info-card:hover .background .line.line-2:before, .info-card:hover .background .line.line-2:after {
+  transition-delay: 0.15s;
+}
+.info-card:hover .background .line.line-3:before, .info-card:hover .background .line.line-3:after {
+  transition-delay: 0.3s;
+}
