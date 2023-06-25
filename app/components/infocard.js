@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 export default function InfoCard({ picture, status, name, description }) {
     return (
-        <div class="info-card" style={{ width: 240, height: 230 }}>
+        <div class="info-card" style={{ width: 240, height: 230 }} onClick={'https://got-api.vercel.app/api/character/1'}>
             <div class="shine"></div>
             <div class="background">
                 <div class="tiles">
