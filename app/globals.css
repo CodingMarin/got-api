@@ -41,6 +41,10 @@
     'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
 }
 
+body{
+  background: var(--background-color);
+}
+
 * {
   box-sizing: inherit;
   -webkit-font-smoothing: antialiased;
@@ -55,18 +59,15 @@ html {
   -webkit-font-smoothing: antialiased;
 }
 
-body{
-  background: var(--background-color) !important;
-}
-
 a {
   color: inherit;
-  text-decoration: none !important;
+  text-decoration: none;
 }
 
 span {
   font-size: 14px;
 }
+
 .align-bottom{
   bottom: 0;
 }
@@ -76,10 +77,15 @@ span {
 }
 
 .gap{
-  gap: 1.552rem;
+  gap: 2.552rem;
 }
-
+.padding-0{
+  padding-right: 32px;
+  padding-left: 32px;
+}
 .info-card {
+  cursor: pointer;
+  width: 275px;
   padding: 56px 16px 16px 16px;
   /* background-color: var(--background-color); */
   box-shadow: 0px var(--card-box-shadow-1-y) var(--card-box-shadow-1-blur) var(--card-box-shadow-1), 0px var(--card-box-shadow-2-y) var(--card-box-shadow-2-blur) var(--card-box-shadow-2), 0 0 0 1px var(--card-border-color);
@@ -92,19 +98,21 @@ span {
   content: "";
   position: absolute;
   inset: 0;
-  border-radius: 15px;
-  /* background-color: var(--card-background-color); */
+  border-radius: 10px;
+  background-color: var(--card-background-color);
 }
 
 .picture{
-  border-radius: 15px 15px 0px 0px;
+  border-radius: 10px 10px 0px 0px;
 }
+
 .info-card .icon {
   z-index: 2;
   position: relative;
   display: table;
   padding: 8px;
 }
+
 .info-card .icon::after {
   content: "";
   position: absolute;
@@ -116,6 +124,7 @@ span {
           backdrop-filter: blur(2px);
   transition: background-color 0.25s, border-color 0.25s;
 }
+
 .info-card .icon svg {
   position: relative;
   z-index: 1;
@@ -126,7 +135,29 @@ span {
   color: var(--card-icon-color);
   transition: color 0.25s;
 }
+.info-card button{
+  visibility: visible;
+  z-index: 2;
+  position: relative;
+  text-align: left;
+  margin: 12px 0 4px 0;
+  padding: 0;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 2;
+  background: none;
+  text-decoration: none;
+  border: 0;
+  color: var(--card-label-color);
+}
+/*
 .info-card h4 {
+  visibility: hidden;
+}
+
+.info-card:hover h4{
+  visibility: visible;
   z-index: 2;
   position: relative;
   margin: 12px 0 4px 0;
@@ -135,7 +166,9 @@ span {
   font-size: 14px;
   line-height: 2;
   color: var(--card-label-color);
-}
+} */
+
+
 .info-card p {
   z-index: 2;
   position: relative;
@@ -143,6 +176,7 @@ span {
   font-size: 14px;
   color: var(--text-color);
 }
+
 .info-card .shine {
   border-radius: inherit;
   position: absolute;
@@ -152,6 +186,7 @@ span {
   opacity: 0;
   transition: opacity 0.5s;
 }
+
 .info-card .shine:before {
   content: "";
   width: 150%;
@@ -165,6 +200,7 @@ span {
   transform: translateX(-50%);
   background-image: var(--card-shine-gradient);
 }
+
 .info-card .background {
   border-radius: inherit;
   position: absolute;
@@ -173,6 +209,7 @@ span {
   -webkit-mask-image: radial-gradient(circle at 60% 5%, black 0%, black 15%, transparent 60%);
   mask-image: radial-gradient(circle at 60% 5%, black 0%, black 15%, transparent 60%);
 }
+
 .info-card .background .tiles {
   opacity: 0;
   transition: opacity 0.25s;
