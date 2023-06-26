@@ -4,7 +4,7 @@ import InfoCard from '@/components/infocard'
 export default function Home() {
   return (
     <main>
-      <div className='container'>
+      <div className='col-lg-12 padding-0'>
         <div className='align-self-center'>
           <div class="row gap justify-content-center">
             <InfoCard
@@ -12,6 +12,12 @@ export default function Home() {
               status={'alive'}
               name={'Daenerys Targaryen'}
               id={1}
+            />
+            <InfoCard
+              picture={'/character_01.png'}
+              status={'alive'}
+              name={'Cersei Lannister'}
+              id={2}
             />
             <InfoCard
               picture={'/character_01.png'}
@@ -35,13 +41,11 @@ export default function Home() {
               picture={'/character_04.png'}
               status={'alive'}
               name={'Night King'}
-              id={5}
             />
             <InfoCard
               picture={'/character_05.png'}
               status={'alive'}
               name={'Arya'}
-              id={6}
             />
           </div>
         </div>
