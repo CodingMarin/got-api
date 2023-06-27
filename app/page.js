@@ -4,7 +4,7 @@ import InfoCard from '@/components/infocard'
 export default function Home() {
   return (
     <main>
-      <div className='col-lg-12 padding-0'>
+      <div className='container'>
         <div className='align-self-center'>
           <div class="row gap justify-content-center">
             <InfoCard
