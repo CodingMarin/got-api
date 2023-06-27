@@ -42,7 +42,7 @@
 }
 
 body{
-  background: var(--background-color);
+  background: var(--background-color) !important;
 }
 
 * {
