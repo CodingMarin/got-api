@@ -89,7 +89,7 @@ span {
   padding: 56px 16px 16px 16px;
   /* background-color: var(--background-color); */
   box-shadow: 0px var(--card-box-shadow-1-y) var(--card-box-shadow-1-blur) var(--card-box-shadow-1), 0px var(--card-box-shadow-2-y) var(--card-box-shadow-2-blur) var(--card-box-shadow-2), 0 0 0 1px var(--card-border-color);
-  border-radius: 15px;
+  border-radius: 10px;
   position: relative;
   transition: box-shadow 0.25s;
 }
