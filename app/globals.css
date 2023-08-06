@@ -1,12 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 :root {
-  --max-width: 1100px;
-  --border-radius: 12px;
   --text-color:#95A1AC;
-  --background-color:#14181b;
+  --background-color:#18181B;
   --card-background-color: #15181B;
   --card-border-color: rgba(255, 255, 255, 0.05);
   --card-box-shadow-1: rgba(0, 0, 0, 0.05);
@@ -40,9 +34,6 @@
   --card-hover-icon-background-color: rgba(52, 211, 153, 0.1);
   --card-hover-icon-border-color: rgba(52, 211, 153, 0.2);
   --blur-opacity: 0.01;
-  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
-    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
-    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
 }
 
 body{
@@ -84,13 +75,14 @@ span {
 .gap{
   gap: 2.552rem;
 }
+
 .padding-0{
   padding-right: 32px;
   padding-left: 32px;
 }
+
 .info-card {
   cursor: pointer;
-  width: 275px !important;
   padding: 56px 16px 16px 16px;
   /* background-color: var(--background-color); */
   box-shadow: 0px var(--card-box-shadow-1-y) var(--card-box-shadow-1-blur) var(--card-box-shadow-1), 0px var(--card-box-shadow-2-y) var(--card-box-shadow-2-blur) var(--card-box-shadow-2), 0 0 0 1px var(--card-border-color);

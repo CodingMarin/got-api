@@ -8,7 +8,7 @@ export default function InfoCard({ picture, status, name, description, id }) {
     const router = useRouter()
 
     return (
-        <div class="info-card">
+        <div class="info-card" style={{ width: 265 }}>
             <span class="icon">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -50,7 +50,7 @@ export default function InfoCard({ picture, status, name, description, id }) {
                 <Image
                     className='picture'
                     src={picture}
-                    alt='Daenerys Targaryen'
+                    alt='picture'
                     width={275}
                     height={210}
                     quality={100}
